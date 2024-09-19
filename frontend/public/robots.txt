@@ -1,0 +1,8 @@
+# Allow all crawlers to access all pages
+User-agent: *
+Allow: /
+
+# Human tasks:
+# - Define specific rules for search engine crawlers if needed
+# - Consider disallowing certain crawlers from accessing specific pages or directories
+# - Review and update the robots.txt file periodically to ensure it aligns with the website's current structure and requirements
