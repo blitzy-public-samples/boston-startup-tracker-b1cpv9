@@ -1,0 +1,72 @@
+version: '3.8'
+
+services:
+  backend:
+    image: boston-startup-tracker-backend:latest  # TODO: Replace with actual image name and tag
+    environment:
+      # TODO: Specify necessary environment variables
+      - DATABASE_URL=postgresql://user:password@db:5432/boston_startup_tracker
+      - ELASTICSEARCH_URL=http://elasticsearch:9200
+      - REDIS_URL=redis://redis:6379
+      - KAFKA_BOOTSTRAP_SERVERS=kafka:9092
+    ports:
+      - "8000:8000"  # TODO: Adjust port as needed
+    depends_on:
+      - db
+      - elasticsearch
+      - redis
+      - kafka
+
+  frontend:
+    image: boston-startup-tracker-frontend:latest  # TODO: Replace with actual image name and tag
+    ports:
+      - "3000:3000"  # TODO: Adjust port as needed
+    depends_on:
+      - backend
+
+  db:
+    image: postgres:13
+    environment:
+      - POSTGRES_DB=boston_startup_tracker
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.14.0
+    environment:
+      - discovery.type=single-node
+    volumes:
+      - elasticsearch_data:/usr/share/elasticsearch/data
+
+  redis:
+    image: redis:6
+    volumes:
+      - redis_data:/data
+
+  kafka:
+    image: confluentinc/cp-kafka:6.2.0
+    environment:
+      - KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181
+      - KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://kafka:9092
+      - KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR=1
+    depends_on:
+      - zookeeper
+
+  zookeeper:
+    image: confluentinc/cp-zookeeper:6.2.0
+    environment:
+      - ZOOKEEPER_CLIENT_PORT=2181
+
+volumes:
+  postgres_data:
+  elasticsearch_data:
+  redis_data:
+
+# TODO: Human tasks
+# - Replace the image placeholders with the actual image names and tags for the backend and frontend services.
+# - Specify the necessary environment variables for each service, such as database connection URLs, API keys, and other configuration settings.
+# - Configure the ports for each service to expose them to the host machine or other services.
+# - Define volumes to persist data for the database, search engine, and cache.
+# - Consider adding a service for the message broker (Apache Kafka) if needed.
