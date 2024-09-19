@@ -1,0 +1,59 @@
+{
+  "name": "boston-startup-tracker-frontend",
+  "version": "1.0.0",
+  "description": "Frontend application for the Boston Startup Tracker",
+  "author": "Your Name <your.email@example.com>",
+  "private": true,
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-redux": "^7.2.6",
+    "@reduxjs/toolkit": "^1.7.1",
+    "react-router-dom": "^6.2.1",
+    "axios": "^0.24.0",
+    "chart.js": "^3.7.0",
+    "react-chartjs-2": "^4.0.0",
+    "styled-components": "^5.3.3"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.1",
+    "@testing-library/react": "^12.1.2",
+    "@testing-library/user-event": "^13.5.0",
+    "@types/react": "^17.0.38",
+    "@types/react-dom": "^17.0.11",
+    "@types/jest": "^27.4.0",
+    "typescript": "^4.5.4",
+    "react-scripts": "5.0.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "lint": "eslint src/**/*.{js,jsx,ts,tsx}",
+    "format": "prettier --write src/**/*.{js,jsx,ts,tsx,css,md,json}"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
+
+// Human tasks:
+// TODO: Populate the `name`, `version`, `description`, `author`, and other relevant fields with appropriate values.
+// TODO: Add the necessary dependencies for the frontend application, including React, Redux, and other libraries.
+// TODO: Define scripts for common tasks such as starting the development server, building the production application, and running tests.
