@@ -1,0 +1,49 @@
+# Web framework
+Flask==2.1.0
+
+# Database ORM
+SQLAlchemy==1.4.31
+
+# PostgreSQL adapter
+psycopg2-binary==2.9.3
+
+# RESTful API extensions for Flask
+Flask-RESTful==0.3.9
+
+# JWT authentication
+Flask-JWT-Extended==4.3.1
+
+# CORS support
+Flask-CORS==3.0.10
+
+# Environment variable management
+python-dotenv==0.19.2
+
+# Data validation and serialization
+marshmallow==3.14.1
+
+# HTTP client for external API requests
+requests==2.27.1
+
+# Task queue for background jobs
+celery==5.2.3
+
+# Redis for Celery backend
+redis==4.1.4
+
+# Logging
+structlog==21.5.0
+
+# Testing
+pytest==7.0.1
+
+# Code linting
+flake8==4.0.1
+
+# Type checking
+mypy==0.931
+
+# Human tasks:
+# TODO: Review and update package versions as needed
+# TODO: Add any additional packages required for specific features
+# TODO: Consider adding packages for monitoring and performance (e.g., Flask-Monitor, prometheus-flask-exporter)
